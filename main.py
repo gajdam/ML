@@ -19,13 +19,13 @@ def generate_random_k(points):
     return random.randint(1, len(points) - 3) # "-3", because 2 points are start and stop
 
 def straight_line_with_2_points(generated_start_end_points):
-    x = generated_start_end_points[0]
-    y = generated_start_end_points[1]
+    p1 = generated_start_end_points[0]
+    p2 = generated_start_end_points[1]
     if x[0] == x[1]:
         raise ValueError("Division by zero is not allowed.")
-
-    slope = (y[0] - y[1]) / (x[0] - x[1])
-    y_intercept = y[0] - (slope * x[0])
+    #               2               -2
+    slope = (p1[1] - p2[1]) / (p1[0] - p2[0]) # = -1
+    y_intercept = p1[1] - (slope * p1[0])
     result = slope, y_intercept
     return result
 
@@ -45,13 +45,8 @@ generated_points = generate_points(10)
 
 print(f"Generated points: {generated_points}")
 
-x=generate_start_end_points(generated_points)
+x=((1,3),(4,2))
 print(straight_line_with_2_points(x))
-print(x[0][0])
-print(x[0][1])
-print(x[0])
-print(x[1])
-print(x)
 
 
-print(generate_random_k(generated_points))
+
