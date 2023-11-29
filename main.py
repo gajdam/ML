@@ -21,7 +21,7 @@ def generate_random_k(points):
 def straight_line_with_2_points(generated_start_end_points):
     p1 = generated_start_end_points[0]
     p2 = generated_start_end_points[1]
-    if x[0] == x[1]:
+    if p1[0] == p2[0]:
         raise ValueError("Division by zero is not allowed.")
     #               2               -2
     slope = (p1[1] - p2[1]) / (p1[0] - p2[0]) # = -1
